@@ -285,6 +285,10 @@ WHERE
 	CAST(ytd.tpep_pickup_datetime AS DATE) <= '2021-01-31'
 GROUP BY DAY
 ORDER BY largest_tip DESC
+
+
+
+Results
 ----------+-----------+
 day       |largest_tip|
 ----------+-----------+
@@ -361,6 +365,9 @@ WHERE
 	AND CAST(ytd.tpep_pickup_datetime AS DATE) = '2021-01-14'
 GROUP BY do_zone."Zone" 
 ORDER BY count_do DESC
+
+
+Results
 ------------------------------+--------+
 Zone                          |count_do|
 ------------------------------+--------+
