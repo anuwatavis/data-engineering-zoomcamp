@@ -465,6 +465,7 @@ For example:
 If any of the zone names are unknown (missing), write "Unknown". For example, "Unknown / Clinton East". 
 
 ### Answers
+- "Alphabet City / Unknown"
 ```
 WITH Zones AS (
 SELECT
