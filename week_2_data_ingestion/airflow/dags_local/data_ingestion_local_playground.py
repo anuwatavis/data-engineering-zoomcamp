@@ -21,10 +21,9 @@ PG_DATABASE = os.getenv('PG_DATABASE')
 
 
 local_workflow = DAG(
-    "LocalIngestionDagDB",
+    "LocalIngestionDag",
     schedule_interval="0 6 2 * *",
-    start_date=datetime(2021, 1, 1),
-    max_active_runs=1
+    start_date=datetime(2021, 1, 1)
 )
 
 
@@ -35,21 +34,22 @@ TABLE_NAME_TEMPLATE = 'yellow_taxi_{{ execution_date.strftime(\'%Y_%m\') }}'
 
 with local_workflow:
     wget_task = BashOperator(
-        task_id='wget',
+        task_id='wget_data',
         bash_command=f'curl -sSL {URL_TEMPLATE} > {OUTPUT_FILE_TEMPLATE}'
     )
 
-    ingest_task = PythonOperator(
-        task_id="ingest",
-        python_callable=ingest_callable,
-        op_kwargs=dict(
-            user=PG_USER,
-            password=PG_PASSWORD,
-            host=PG_HOST,
-            port=PG_PORT,
-            db=PG_DATABASE,
-            table_name=TABLE_NAME_TEMPLATE,
-            csv_file=OUTPUT_FILE_TEMPLATE
-        ),
-    )
-    wget_task >> ingest_task
+    # ingest_task = PythonOperator(
+    #     task_id="ingest",
+    #     python_callable=ingest_callable,
+    #     op_kwargs=dict(
+    #         user=PG_USER,
+    #         password=PG_PASSWORD,
+    #         host=PG_HOST,
+    #         port=PG_PORT,
+    #         db=PG_DATABASE,
+    #         table_name=TABLE_NAME_TEMPLATE,
+    #         csv_file=OUTPUT_FILE_TEMPLATE
+    #     ),
+    # )
+    wget_task
+    # wget_task >> ingest_task
