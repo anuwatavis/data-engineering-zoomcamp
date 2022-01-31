@@ -32,8 +32,11 @@ What should be the start date for this dag?
 * 2021-01-01
 * days_ago(1)
 ### Answers
-- 2019-01-01  
-[Code]("https://github.com/anuwatavis/data-engineering-zoomcamp/blob/main/week_2_data_ingestion/homework/dags/fhv_data_ingestion.py")
+- 2019-01-01
+  
+[Code](https://github.com/anuwatavis/data-engineering-zoomcamp/blob/main/week_2_data_ingestion/homework/dags/yellow_taxi_data_ingestion.py)
+
+
 ## Question 2: Frequency (1 point)
 
 How often do we need to run it?
@@ -43,7 +46,10 @@ How often do we need to run it?
 * Yearly
 * Once
 ### Answers
-- Monthly
+- Monthly  
+  
+[Code](https://github.com/anuwatavis/data-engineering-zoomcamp/blob/main/week_2_data_ingestion/homework/dags/fhv_data_ingestion.py)
+
 
 
 ## Re-running the DAGs for past dates
@@ -116,6 +122,10 @@ How often does it need to run?
 
 ### Answers
 - Once
+
+[Code](https://github.com/anuwatavis/data-engineering-zoomcamp/blob/main/week_2_data_ingestion/homework/dags/zone_data_ingestion.py)
+
+
 
 
 
