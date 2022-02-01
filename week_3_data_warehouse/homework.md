@@ -6,10 +6,18 @@ We will use all the knowledge learned in this week. Please answer your questions
 ### Question 1: 
 **What is count for fhv vehicles data for year 2019**  
 Can load the data for cloud storage and run a count(*)
+```
+-- Query count *
+SELECT COUNT(*) FROM `****************.trips_data_all.external_fhv_data`;
+```
 
 ### Question 2: 
 **How many distinct dispatching_base_num we have in fhv for 2019**  
 Can run a distinct query on the table from question 1
+```
+-- Query distinct of dispatching_base_num
+SELECT DISTINCT(dispatching_base_num) FROM `****************.trips_data_all.external_fhv_data`;
+```
 
 ### Question 3: 
 **Best strategy to optimise if query always filter by dropoff_datetime and order by dispatching_base_num**  
@@ -22,6 +30,12 @@ performance and reduce cost.
 Create a table with optimized clustering and partitioning, and run a 
 count(*). Estimated data processed can be found in top right corner and
 actual data processed can be found after the query is executed.
+```
+SELECT  COUNT(*) FROM `****************.trips_data_all.external_fhv_data_partitoned_clustered` 
+WHERE (CAST(dropoff_datetime AS DATE) >= '2019-01-01' 
+AND CAST(dropoff_datetime AS DATE) <= '2019-03-31' ) 
+AND(dispatching_base_num ='B00987' OR dispatching_base_num = 'B02060' OR dispatching_base_num = 'B02279');
+```
 
 ### Question 5: 
 **What will be the best partitioning or clustering strategy when filtering on dispatching_base_num and SR_Flag**  
