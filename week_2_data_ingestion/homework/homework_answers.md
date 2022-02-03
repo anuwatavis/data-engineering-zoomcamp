@@ -78,14 +78,13 @@ It could be a bash operator that runs this command:
 rm name-of-csv-file.csv name-of-parquet-file.parquet
 ```
 
-
 ## Question 3: DAG for FHV Data (2 points)
 
 Now create another DAG - for uploading the FHV data. 
 
 We will need three steps: 
 
-* Donwload the data
+* Download the data
 * Parquetize it 
 * Upload to GCS
 
@@ -96,11 +95,14 @@ If you don't have a GCP account, for local ingestion you'll need two steps:
 
 Use the same frequency and the start date as for the yellow taxi dataset
 
-Question: how many DAG runs are green after finishing everything? 
+Question: how many DAG runs are green for data in 2019 after finishing everything? 
 
+Note: when processing the data for 2020-01 you probably will get an error. It's up 
+to you to decide what to do with it - for Week 3 homework we won't need 2020 data.
 ### Answers
-- 31
+- 12
 
+[code](https://github.com/anuwatavis/data-engineering-zoomcamp/blob/main/week_2_data_ingestion/homework/dags/fhv_data_ingestion.py)
 
 ## Question 4: DAG for Zones (2 points)
 
