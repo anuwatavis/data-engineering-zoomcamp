@@ -48,7 +48,7 @@ How often do we need to run it?
 ### Answers
 - Monthly  
   
-[Code](https://github.com/anuwatavis/data-engineering-zoomcamp/blob/main/week_2_data_ingestion/homework/dags/fhv_data_ingestion.py)
+[Code](https://github.com/anuwatavis/data-engineering-zoomcamp/blob/main/week_2_data_ingestion/homework/dags/yellow_taxi_data_ingestion.py)
 
 
 
