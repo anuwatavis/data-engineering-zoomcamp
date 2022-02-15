@@ -26,18 +26,32 @@ https://github.com/anuwatavis/ny_taxi_zoomcamp
 You'll need to have completed the "Build the first dbt models" video and have been able to run the models via the CLI. 
 You should find the views and models for querying in your DWH.
 
+```
+SELECT COUNT(1) FROM `anuwat-295814.dbt_awat.fact_trips` 
+WHERE EXTRACT (YEAR FROM pickup_datetime) = 2019 
+OR EXTRACT (YEAR FROM pickup_datetime) = 2020 ; 
+```
+
 ### Question 2: 
 **What is the distribution between service type filtering by years 2019 and 2020 data as done in the videos**
 
 You will need to complete "Visualising the data" videos, either using data studio or metabase. 
 
+ ![Distribution from Data Studio](./question_2.png)
+
+
 ```
 # green services 
-SELECT count(1) FROM `anuwat-295814.dbt_awat.fact_trips` WHERE (EXTRACT(YEAR FROM pickup_datetime) = 2020 OR EXTRACT(YEAR FROM pickup_datetime) = 2019) AND service_type = 'Green' ;
-
+SELECT count(1) FROM `**********.dbt_awat.fact_trips` 
+WHERE (EXTRACT(YEAR FROM pickup_datetime) = 2020 
+OR EXTRACT(YEAR FROM pickup_datetime) = 2019) 
+AND service_type = 'Green' ;
 # yellow services 
 
-SELECT count(1) FROM `anuwat-295814.dbt_awat.fact_trips` WHERE (EXTRACT(YEAR FROM pickup_datetime) = 2020 OR EXTRACT(YEAR FROM pickup_datetime) = 2019) AND service_type = 'Yellow' ;
+SELECT count(1) FROM `**********.dbt_awat.fact_trips` 
+WHERE (EXTRACT(YEAR FROM pickup_datetime) = 2020 
+OR EXTRACT(YEAR FROM pickup_datetime) = 2019) 
+AND service_type = 'Yellow' ;
 
 # finally answers
 yellow/green
@@ -68,6 +82,8 @@ SELECT count(1) FROM `**********.production.=fact_fhv_trips` WHERE (EXTRACT(YEAR
 ### Question 5: 
 **What is the month with the biggest amount of rides after building a tile for the fact_fhv_trips table**
 Create a dashboard with some tiles that you find interesting to explore the data. One tile should show the amount of trips per month, as done in the videos for fact_trips, based on the fact_fhv_trips table.
+
+![Amount of rides by month.](./question_5.png)
 
 ```
 SELECT EXTRACT(MONTH FROM pickup_datetime), COUNT(1) as count  FROM `**********.product.fact_fhv_trips` GROUP BY EXTRACT (MONTH FROM pickup_datetime);
