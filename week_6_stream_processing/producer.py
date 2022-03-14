@@ -1,6 +1,7 @@
 from time import sleep
 from json import dumps
 from kafka import KafkaProducer
+import uuid
 
 
 producer = KafkaProducer(bootstrap_servers=['localhost:9092'],
@@ -8,7 +9,8 @@ producer = KafkaProducer(bootstrap_servers=['localhost:9092'],
                          dumps(x).encode('utf-8'))
 
 for e in range(1000):
-    data = {'number' : e}
+    uid = uuid.uuid4()
+    data = {'number': str(e) + str(uid)}
     producer.send('demo_1', value=data)
-    print("producing")
+    print("producing" + " " + str(e) + str(uid))
     sleep(1)

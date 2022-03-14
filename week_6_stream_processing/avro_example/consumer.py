@@ -29,4 +29,3 @@ def read_messages():
 
 if __name__ == "__main__":
     read_messages()
-

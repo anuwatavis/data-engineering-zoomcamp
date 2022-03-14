@@ -55,6 +55,7 @@ services:
       SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: "zookeeper:2181"
 
   control-center:
+    platform: linux/amd64
     image: confluentinc/cp-enterprise-control-center:5.4.0
     hostname: control-center
     container_name: control-center

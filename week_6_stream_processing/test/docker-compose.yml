@@ -1,0 +1,18 @@
+version: '3'
+services:
+  control-kafka:
+      image: confluentinc/cp-enterprise-control-center:5.4.0
+      hostname: control-kafka
+      container_name: control-kafka
+      ports:
+        - "9022:9021"
+      environment:
+        CONTROL_CENTER_BOOTSTRAP_SERVERS: "localhost:9092"
+        CONTROL_CENTER_ZOOKEEPER_CONNECT: "localhost:2181"
+        CONTROL_CENTER_SCHEMA_REGISTRY_URL: "localhost:8081"
+        CONTROL_CENTER_REPLICATION_FACTOR: 1
+        CONTROL_CENTER_INTERNAL_TOPICS_PARTITIONS: 1
+        CONTROL_CENTER_MONITORING_INTERCEPTOR_TOPIC_PARTITIONS: 1
+        CONFLUENT_METRICS_TOPIC_REPLICATION: 1
+        CONTROL_CENTER_REST_LISTENERS: http://0.0.0.0:9021,https://0.0.0.0:9022
+        PORT: 9021
